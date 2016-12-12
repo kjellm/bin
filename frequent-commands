@@ -1,0 +1,3 @@
+#!/bin/bash
+cat ~/.bash_history | sort | uniq -c | sort -r | head -n20
+cat ~/.bash_history | cut -d ' ' -f 1 | sort | uniq -c | sort -r | head -n20
