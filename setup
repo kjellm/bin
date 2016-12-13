@@ -2,11 +2,20 @@
 
 set -Euo pipefail
 
-RUBY_VERSION=2.3.1
+RUBY_VERSION=2.3.3
 LOG=/tmp/setup.log
 
+brews="rbenv ack git bash-completion coreutils tree wget"
+casks="emacs flux"
+gems="rake bundler pry"
+
+# TODO
+# - Install Google Chrome (Can not be done from brew cask because of 1password)
+# - Update brews, gems, cloned git repositories
+# - Get Docker for Mac from cask
+
 function error {
-    echo "The bootsrap script prematurely halted execution because of an error"
+    echo "The setup script prematurely halted execution because of an error"
     echo "$0:$1"
     exit 1
 }
@@ -20,7 +29,7 @@ function lecho {
 
 function log_output {
     echo "$@"
-    "$@" >> "$LOG" # 2>&1
+    "$@" 2>&1 | tee -a "$LOG"
 }
 
 function unless_cmd_exists {
@@ -100,16 +109,10 @@ cat <<EOF > .bash_profile
 . "$HOME/.bash.d/profile.sh"
 EOF
 
-brews="rbenv ack git bash-completion coreutils tree wget"
-casks="emacs"
-gems="rake bundler pry"
-
 lecho "BREW --------------------------------------------------"
 for X in $brews; do
     brew_install_if_missing "$X"
 done
-
-eval "$(rbenv init -)"
 
 lecho "BREW CASK ----------------------------------------------"
 brew_tap_if_missing caskroom/cask
@@ -121,11 +124,14 @@ done
 lecho "XCODE --------------------------------------------------"
 if ! xcode_command_line_utils_installed; then
     xcode-select --install
+    lecho "Need to install before proceding. Exiting, please rerun the script to finish setup"
+    exit
 fi
 
 lecho "RBENV --------------------------------------------------"
+eval "$(rbenv init -)"
 rbenv_install_if_missing "$RUBY_VERSION"
-rbenv local "$RUBY_VERSION"
+rbenv global "$RUBY_VERSION"
 
 lecho "GEM ----------------------------------------------------"
 for X in $gems; do
