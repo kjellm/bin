@@ -93,11 +93,15 @@ cd $HOME
 unless_cmd_exists brew install_homebrew
 
 if [ ! -d "$HOME/.emacs.d" ]; then
-    git clone git@github.com:kjellm/emacs.d.git .emacs.d
+    git clone git@github.com:kjellm/emacs.d.git "$HOME/.emacs.d"
 fi
 
 if [ ! -d "$HOME/.bash.d" ]; then
-    git clone git@github.com:kjellm/bash-setup.git .bash.d
+    git clone git@github.com:kjellm/bash-setup.git "$HOME/.bash.d"
+fi
+
+if [ ! -d "$HOME/bin" ]; then
+    git clone git@github.com:kjellm/bin.git "$HOME/bin"
 fi
 
 cat <<EOF > .bashrc
