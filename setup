@@ -7,7 +7,7 @@ LOG=/tmp/setup.log
 
 brews="rbenv ack git bash-completion coreutils tree wget"
 casks="emacs flux"
-gems="rake bundler pry"
+gems="rake bundler pry rubocop"
 
 # TODO
 # - Install Google Chrome (Can not be done from brew cask because of 1password)
