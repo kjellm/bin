@@ -5,7 +5,7 @@ set -Euo pipefail
 RUBY_VERSION=2.3.3
 LOG=/tmp/setup.log
 
-brews="rbenv ack git bash-completion coreutils tree wget"
+brews="rbenv ack git bash-completion coreutils tree wget aspell"
 casks="emacs flux"
 gems="rake bundler pry rubocop"
 
@@ -13,6 +13,9 @@ gems="rake bundler pry rubocop"
 # - Install Google Chrome (Can not be done from brew cask because of 1password)
 # - Update brews, gems, cloned git repositories
 # - Get Docker for Mac from cask
+# - Fix norwegian dictionary for aspell:
+#     brew reinstall aspell --with-lang-en --with-lang-nb
+
 
 function error {
     echo "The setup script prematurely halted execution because of an error"
