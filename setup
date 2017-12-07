@@ -5,8 +5,8 @@ set -Euo pipefail
 RUBY_VERSION=2.3.3
 LOG=/tmp/setup.log
 
-brews="rbenv ack git bash-completion coreutils tree wget aspell"
-casks="emacs flux"
+brews="rbenv ack git bash-completion coreutils tree wget aspell node elixir"
+casks="emacs flux elm-runtime"
 gems="rake bundler pry rubocop"
 
 # TODO
@@ -15,6 +15,7 @@ gems="rake bundler pry rubocop"
 # - Get Docker for Mac from cask
 # - Fix norwegian dictionary for aspell:
 #     brew reinstall aspell --with-lang-en --with-lang-nb
+# - node install -g elm-format
 
 
 function error {
