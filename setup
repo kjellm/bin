@@ -6,7 +6,7 @@ RUBY_VERSION=2.3.3
 LOG=/tmp/setup.log
 
 brews="rbenv ack git bash-completion coreutils tree wget aspell node elixir"
-casks="emacs flux elm-runtime"
+casks="emacs flux elm-platform graphiql"
 gems="rake bundler pry rubocop"
 
 # TODO
