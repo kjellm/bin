@@ -1,0 +1,5 @@
+#! /bin/bash
+
+cd ~/work/kmo/flexi
+. .env
+bundle exec ruby absence
