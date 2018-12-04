@@ -5,7 +5,7 @@ set -Euo pipefail
 RUBY_VERSION=2.3.3
 LOG=/tmp/setup.log
 
-brews="rbenv git bash-completion coreutils tree wget aspell node elixir elm the_silver_searcher postgresql heroku the_silver_searcher"
+brews="rbenv git bash-completion coreutils tree wget aspell node elixir elm the_silver_searcher postgresql heroku the_silver_searcher tmux ctop htop watch jq"
 casks="emacs flux graphiql tableplus dash"
 gems="rake bundler pry rubocop"
 
