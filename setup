@@ -2,7 +2,7 @@
 
 set -Euo pipefail
 
-RUBY_VERSION=2.3.3
+RUBY_VERSION=2.5.3
 LOG=/tmp/setup.log
 
 brews="rbenv git bash-completion coreutils tree wget aspell node elixir elm the_silver_searcher postgresql heroku tmux ctop htop watch jq"
